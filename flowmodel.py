@@ -714,15 +714,8 @@ class ModelVisualisation:
 
         self.geom_fig = cfv.figure(self.geom_fig)
 
-        if self.geom_widget is None:
-            self.geom_widget = cfv.figure_widget(self.geom_fig)
-
         cfv.clf()
-        cfv.draw_geometry(geometry, title="Geometry")
-
-        if no_show:
-            return self.geom_widget
-        
+        cfv.draw_geometry(geometry, title="Geometry")       
         cfv.show()
 
         return None
@@ -737,16 +730,10 @@ class ModelVisualisation:
 
         self.mesh_fig = cfv.figure(self.mesh_fig)
 
-        if self.mesh_widget is None:
-            self.mesh_widget = cfv.figure_widget(self.mesh_fig)
-
         cfv.clf()
         cfv.draw_mesh(coords, edof, dofs_per_node, el_type, filled=True,
                       title="Mesh")
-
-        if no_show:
-            return self.mesh_widget
-        
+      
         cfv.show()
 
         return None
@@ -762,17 +749,10 @@ class ModelVisualisation:
 
         self.node_value_fig = cfv.figure(self.node_value_fig)
 
-        if self.node_value_widget is None:
-            self.node_value_widget = cfv.figure_widget(self.node_value_fig)
-
         cfv.clf()
         cfv.draw_nodal_values(a, coords, edof, dofs_per_node=dofs_per_node,
                               el_type=el_type, draw_elements=False,
                               title="Nodal values")
-
-        if no_show:
-            return self.node_value_widget
-        
         cfv.show()
 
         return None
@@ -788,16 +768,10 @@ class ModelVisualisation:
 
         self.el_value_fig = cfv.figure(self.el_value_fig)
 
-        if self.el_value_widget is None:
-            self.el_value_widget = cfv.figure_widget(self.el_value_fig)
-
         cfv.clf()
         cfv.draw_element_values(np.reshape(evm, (evm.shape[0],)), coords, edof, dofs_per_node,  
                                 el_type, None, draw_elements=False, title="Max flows")
 
-        if no_show:
-           return self.el_value_widget
-        
         cfv.colorbar()
         cfv.show()
 
