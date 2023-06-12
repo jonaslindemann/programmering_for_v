@@ -53,11 +53,6 @@ if __name__ == "__main__":
     model_params = fm.ModelParams()
     model_results = fm.ModelResults()
 
-    # --- Skapa en lösare för vårt problem och koppla
-    #     parametrar och resultat till objektet.
-
-    model_solver = fm.ModelSolver(model_params, model_results)
-
     # --- Definiera arrayer för våra parametrar
 
     d_range = np.linspace(0.2, 8.0, 2)
@@ -66,6 +61,11 @@ if __name__ == "__main__":
     d, t = np.meshgrid(d_range, t_range)
 
     max_flow = np.zeros((len(d_range),len(t_range)))
+
+    # --- Skapa en lösare för vårt problem och koppla
+    #     parametrar och resultat till objektet.
+
+    model_solver = fm.ModelSolver(model_params, model_results)
 
     # --- Använd lösaren för att beräkna alla kombinationer
     #     av parametrarna d och t.
