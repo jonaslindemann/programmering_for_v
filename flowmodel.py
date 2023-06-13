@@ -63,7 +63,7 @@ class ModelParams:
         d = self.d
         t = self.t
 
-        #Points
+                #Points
         g.point([0., 0.])     # 0
         g.point([w, 0.])      # 1
         g.point([w, h])       # 2
